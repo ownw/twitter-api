@@ -32,18 +32,6 @@ node {
 			} 
 		}
 	}
-
-	stage('Sonar') {
-		 withSonarQubeEnv('Sonar') {
-	            withMaven(maven: 'maven') {
-			if(isUnix()) {
- 				sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_spring-boot-webmvc" 
-			} else { 
- 				bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_spring-boot-webmvc" 
-			} 
-		    } 
-		}
-	}
 	
 	stage('Build Docker Image') {
 		withMaven(maven: 'maven') {

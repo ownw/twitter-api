@@ -43,4 +43,15 @@ node {
 		}
 	}
 
+	stage('Quality check') {
+		withSonarQubeEnv('Sonar') {
+			withMaven(maven: 'maven') {
+				if(isUnix()) {
+					sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ownw_twitter_api"
+				} else {
+					bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ownw_twitter_api"
+				}
+			}
+		}
+	}
 }

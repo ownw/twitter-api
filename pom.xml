@@ -17,6 +17,10 @@
 		<jib-maven-plugin.version>3.0.0</jib-maven-plugin.version>
 		<springdoc.version>1.5.9</springdoc.version>
 	</properties>
+	<properties>
+  		<sonar.organization>ownw</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 	<dependencies>
 		<!-- springdoc ui -->
 		<dependency>
